@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 int GCD(int a, int b);//최대공약수 함수
-int LCM(int a, int b); //최소공배수 함수
+int LCM(int a, int b); //최소공배수 함수다
 int main() {
 	int a, b;
 	cin >> a;
