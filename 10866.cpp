@@ -12,22 +12,24 @@ front: 덱의 가장 앞에 있는 정수를 출력한다. 만약 덱에 들어있는 정수가 없는 경우�
 back: 덱의 가장 뒤에 있는 정수를 출력한다. 만약 덱에 들어있는 정수가 없는 경우에는 -1을 출력한다.
 
 */
-int arr[1000] = {}; // 덱의 개수는 100개
+
+int arr[10000] = {}; // 덱의 개수는 10000개
 int a = 0; // a는 정수의 개수
+
 void push_front() {
 	int x = 0;
 	cin >> x; // 정수 x
 
 	if (a == 0) {
-		arr[a] = x; // a번째 배열에 정수x 대입
+		arr[0] = x; // a번째 배열에 정수x 대입
 		a++;
 	}
 	else { // a가 0이 아닐 경우
 		for (int i = a; i > 0; i--) { // 한칸씩 뒤로 미룬다
 			arr[i] = arr[i - 1];
-			arr[0] = x;
-			a++;
 		}
+		arr[0] = x;
+		a++;
 	}
 }
 void push_back() {
@@ -46,12 +48,11 @@ int pop_front() {
 		return -1;
 	}
 	else {
-		int front = 0;
-		front = arr[0];
+		int front = arr[0];
 		for (int i = 0; i < a; i++) {
-			arr[i] = arr[i + 1];//맨 앞의 수를 빼고 한칸씩 앞으로 민다
-			a--;//정수 개수
+			arr[i] = arr[i + 1];//맨 앞의 수를 빼고 한칸씩 앞으로 민다 
 		}
+		a--;//정수 개수
 		return front;
 	}
 }
@@ -60,9 +61,7 @@ int pop_back() {
 		return -1;
 	}
 	else {
-		int last = 0;
-		last = arr[a];
-		arr[a] = 0;
+		int last = arr[a - 1];
 		a--;//정수 개수
 		return last;
 	}
